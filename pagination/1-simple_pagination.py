@@ -2,7 +2,7 @@
 
 import csv
 import math
-from typing import List, Tuple
+from typing import List
 
 
 class Server:
@@ -36,7 +36,7 @@ class Server:
         return self.dataset()[start:end]
 
 
-def index_range(page: int, page_size: int) -> Tuple[int, int]:
+def index_range(page: int, page_size: int) -> tuple[int, int]:
     """Function to return index range Tuple from page and page_size"""
     start = (page - 1) * page_size
     end = page * page_size
