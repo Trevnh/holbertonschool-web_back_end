@@ -28,8 +28,8 @@ class Server:
         """Gets the paginated version of the data with the given
         aspects of page and page_size
         """
-        assert type(page) is int
-        assert type(page_size) is int
+        assert isinstance(page, int)
+        assert isinstance(page_size, int)
         assert page > 0
         assert page_size > 0
         start, end = index_range(page, page_size)
