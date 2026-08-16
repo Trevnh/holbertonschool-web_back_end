@@ -51,7 +51,7 @@ class Server:
     data = self.get_page(page, page_size)
 
     total_pages = math.ceil(
-        len(self.dataset() / page_size)) if self.dataset() else 0
+        len(self.dataset()) / page_size) if self.dataset() else 0
 
     next_page = page + 1 if page < total_pages else None
     prev_page = page - 1 if page > 1 else None
