@@ -1,8 +1,16 @@
 #!/usr/bin/env python3
+"""Module for Simple Pagination"""
 
 import csv
 import math
 from typing import List
+
+
+def index_range(page: int, page_size: int) -> tuple[int, int]:
+    """Function to return index range Tuple from page and page_size"""
+    start = (page - 1) * page_size
+    end = page * page_size
+    return (start, end)
 
 
 class Server:
@@ -32,17 +40,6 @@ class Server:
         assert isinstance(page_size, int)
         assert page > 0
         assert page_size > 0
-        start, end = index_range(page, page_size)
-        try:
-            self.dataset()[start]
-            self.dataset()[end]
-        except IndexError:
-            return []
+        (start, end) = index_range(page, page_size)
+
         return self.dataset()[start:end]
-
-
-def index_range(page: int, page_size: int) -> tuple[int, int]:
-    """Function to return index range Tuple from page and page_size"""
-    start = (page - 1) * page_size
-    end = page * page_size
-    return (start, end)
