@@ -11,7 +11,7 @@ function countStudents(path) {
       .map((e) => e.split(',').map((e) => e.trim()))
       .filter((e) => e.length !== 1);
     data1.shift();
-    console.log(`Number of Students: ${data1.length}`);
+    console.log(`Number of students: ${data1.length}`);
     const field = data1.map((row) => row[3]);
     const nameField = data1.map((row) => [row[0], row[3]]);
     const uniqueFields = [...new Set(field)];
