@@ -22,7 +22,7 @@ function countStudents(path) {
           list.push(e[0]);
         }
       });
-      console.log(`Number of Students in ${element}: ${list.length}. List: ${list.join(', ')}`);
+      console.log(`Number of students in ${element}: ${list.length}. List: ${list.join(', ')}`);
     });
   });
 }
