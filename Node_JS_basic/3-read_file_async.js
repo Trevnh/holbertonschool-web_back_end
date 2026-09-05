@@ -15,17 +15,17 @@ function countStudents(path) {
         console.log(`Number of students: ${data1.length}`);
         const fields = {};
         data1.forEach((line) => {
-            const firstName = line[0];
-            const field = line[3].trim();
-            
-            if (!fields[field]) {
-                fields[field] = [];
-            }
+          const firstName = line[0];
+          const field = line[3].trim();
 
-            fields[field].push(firstName);
-        })
+          if (!fields[field]) {
+            fields[field] = [];
+          }
+
+          fields[field].push(firstName);
+        });
         Object.keys(fields).forEach((field) => {
-            console.log(`Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}`);
+          console.log(`Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}`);
         });
         resolve();
       }
