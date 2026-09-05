@@ -14,17 +14,17 @@ function countStudents(path) {
           .filter((e) => e.length !== 1);
         data1.shift();
         let output = `Number of students: ${data1.length}\n`;
-        const field = data1.map((row) => row[3]);
-        const nameField = data1.map((row) => [row[0], row[3]]);
-        const uniqueFields = [...new Set(field)];
-        uniqueFields.forEach((element) => {
-          const list = [];
-          nameField.forEach((e) => {
-            if (e[1] === element) {
-              list.push(e[0]);
-            }
-          });
-          output += `Number of students in ${element}: ${list.length}. List: ${list.join(', ')}\n`;
+        const fields = {};
+        data1.forEach((line) => {
+          const firstName = line[0];
+          const field = line[3].trim();
+          if (!fields[field]) {
+            fields[field] = [];
+          }
+          fields[field].push(firstName);
+        });
+        Object.keys(fields).forEach((field) => {
+          output += `Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}\n`;
         });
         resolve(output);
       }
